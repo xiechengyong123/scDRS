@@ -119,8 +119,8 @@ def load_scdrs_score(
     ), "Expect scDRS .full_score.gz files for score_file"
 
     # Get score_dir and score_file_list for potentially multiple score files
-    score_file_pattern = score_file.split(os.path.sep)[-1]
-    score_dir = score_file.replace(os.path.sep + score_file_pattern, "")
+    score_dir = os.path.dirname(score_file)
+    score_file_pattern = os.path.basename(score_file)
     score_file_list = [
         x
         for x in os.listdir(score_dir)
